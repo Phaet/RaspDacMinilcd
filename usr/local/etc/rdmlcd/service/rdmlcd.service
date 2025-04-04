@@ -1,0 +1,16 @@
+[Unit]
+Description=LCD Display Service for moOde
+After=mpd.service
+Requires=mpd.service
+[Service]
+WorkingDirectory=/usr/local/etc/rdmlcd/
+ExecStartPre=/bin/sh -c 'echo 0 > /sys/class/vtconsole/vtcon1/bind'
+ExecStart=/usr/bin/node /usr/local/etc/rdmlcd/index.js moode /dev/fb0
+ExecStopPost=/bin/sh -c 'echo 1 > /sys/class/vtconsole/vtcon1/bind'
+StandardOutput=null
+KillSignal=SIGINT
+Type=simple
+Restart=always
+User=root
+[Install]
+WantedBy=multi-user.target

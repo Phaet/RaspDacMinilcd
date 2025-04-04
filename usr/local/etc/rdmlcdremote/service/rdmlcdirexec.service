@@ -1,0 +1,8 @@
+[Unit]
+Requires=rdmlcdlirc.service
+After=rdmlcdlirc.service
+[Service]
+Type=simple
+ExecStart=/usr/bin/irexec /usr/local/etc/rdmlcdremote/irexec.lircrc 
+[Install]
+WantedBy=multi-user.target

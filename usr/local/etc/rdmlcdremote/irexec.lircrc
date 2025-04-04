@@ -1,0 +1,94 @@
+begin
+prog = irexec
+button = poweroff
+config = /usr/local/bin/remoteproxy /sbin/poweroff 
+end
+
+begin
+prog = irexec
+button = playright
+config = /usr/local/bin/remoteproxy /usr/bin/mpc seek +3 
+delay = 2
+repeat = 3
+end
+
+begin
+prog = irexec
+button = playleft
+config = /usr/local/bin/remoteproxy /usr/bin/mpc seek -3
+delay = 2
+repeat = 3
+end
+
+begin
+prog = irexec
+button = play
+config = /usr/local/bin/remoteproxy /usr/bin/mpc toggle
+repeat = 0
+end
+
+begin
+prog = irexec
+button = volplus
+config = /usr/local/bin/remoteproxy /var/www/util/vol.sh -up 3
+delay = 2
+repeat = 3
+end
+
+begin
+prog = irexec
+button = volminus
+config = /usr/local/bin/remoteproxy /var/www/util/vol.sh -dn 3
+delay = 2
+repeat = 3
+end
+
+
+begin
+prog = irexec
+button = mute
+config = /usr/local/bin/remoteproxy  /var/www/util/vol.sh mute
+repeat = 0
+end
+
+begin
+prog = irexec
+button = input
+config = /usr/local/bin/remoteproxy toggle_input 
+repeat = 0
+end
+
+begin
+prog = irexec
+button = option
+config = /usr/local/bin/remoteproxy next_filter 
+repeat = 3
+end
+
+begin
+prog = irexec
+button = up
+config = /usr/local/bin/remoteproxy switch_view
+repeat = 3
+end
+
+begin
+prog = irexec
+button = down
+config = /usr/local/bin/remoteproxy switch_view
+repeat = 3
+end
+
+begin
+prog = irexec
+button = right
+config = /usr/local/bin/remoteproxy  /usr/bin/mpc next
+repeat = 0
+end
+
+begin
+prog = irexec
+button = left
+config = /usr/local/bin/remoteproxy /usr/bin/mpc prev
+repeat = 0
+end

@@ -1,0 +1,30 @@
+#!/bin/sh
+allargs="$@"
+firstarg="$1"
+shift >/dev/null 2>&1
+
+curlcmd="curl -m 1 localhost:4153"
+
+
+case "$firstarg" in
+	'switch_view')
+		${curlcmd}/switch_view
+		;;
+	'printoff')
+		${curlcmd}/poweroff
+		;;
+	'poweroff')
+		${curlcmd}/poweroff
+		/sbin/poweroff
+		;;
+	'next_filter')
+		${curlcmd}/filter_change=$(/usr/local/bin/apessq2m next_filter 1)
+		;;
+	'toggle_input')
+		${curlcmd}/input=$(/usr/local/bin/apessq2m toggle_input 1)
+		;;
+	*)
+		${curlcmd}/nosleep
+		$allargs
+		;;
+esac 

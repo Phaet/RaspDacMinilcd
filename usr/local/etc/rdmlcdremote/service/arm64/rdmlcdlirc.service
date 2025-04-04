@@ -1,0 +1,9 @@
+[Unit]
+Wants=lircd-setup.service
+After=network.target lircd-setup.service
+[Service]	
+ExecStart=/usr/sbin/lircd -n -O /usr/local/etc/rdmlcdremote/lirc_options.conf -o /var/run/lirc/lircd -H default -d /dev/lirc0 /usr/local/etc/rdmlcdremote/lircd.conf
+Type=notify
+User=root
+[Install]
+WantedBy=multi-user.target
