@@ -23,7 +23,7 @@
   "homepage": "https://github.com/audiophonics/RaspDacMinilcd#readme",
   "dependencies": {
     "@tokenizer/http": "^0.6.1",
-    "node-canvas": "^2.9.0",
+    "canvas": "^3.0.0",
     "simple-get": "^4.0.1",
     "stackblur-canvas": "^2.5.0"
   },
