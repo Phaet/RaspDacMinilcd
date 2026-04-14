@@ -208,7 +208,7 @@ moode_listener.prototype.processChanges = function(key,data){
 			return;
 		}
 		
-		if ( /http:\/\//.test(data) ){
+		if ( /https?:\/\//.test(data) ){
 			this.emit( "coverChange",data );
 			return;
 		}
