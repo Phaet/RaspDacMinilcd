@@ -37,7 +37,7 @@ const http = require("http");
 
 // On s'assure d'utiliser le module d'extension natif compilé pour l'architecture actuelle 
 
-const { Image, createCanvas, loadImage, DOMMatrix, ImageData  } = require('node-canvas');
+const { Image, createCanvas, loadImage, DOMMatrix, ImageData  } = require('canvas');
 
 // Canvas principal (ce qui est dessus = ce qui est affiché à l'écran)
 const canvas = createCanvas(320, 240 );
