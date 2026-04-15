@@ -1,5 +1,5 @@
 
-RDMLCD on moOde Audio 9
+RDMLCD on moOde Audio 10.x
 
 Disclaimer
 
