@@ -178,6 +178,16 @@ moode_listener.prototype.processChanges = function(key,data){
 		if(this.state === "play") this.resetIdleTimeout(); // sinon les webradios sortent l'écran de veille 
 	}
 	else if(key === "state"){
+		if(data === "stop"){
+			this.data.coverurl = "./idle_moode.png";	// set the idle default image as the current cover
+			this.emit("coverChange", "./idle_moode.png");	// print the default image on the display
+			this.formatedMainString = "";			// empty the text field for trackname / artist / album 
+			this.emit( "trackChange", "" );			// print the empty text field on the display
+		}
+		else{
+			this.formatMainString();				 // regenerate text field for trackname / artist / album 
+			this.emit( "trackChange", this.formatedMainString );	 // print the non-empty text field for trackname / artist / album on the display
+		}
 		this.state = data;
 		this.resetIdleTimeout();
 		this.emit( "stateChange", data );
@@ -203,6 +213,11 @@ moode_listener.prototype.processChanges = function(key,data){
 		this.emit( "line1", "Sample Depth : " + data );
 	}
 	else if(key === "coverurl"){
+		if(this.data.state === "stop"){
+			this.data.coverurl = "./idle_moode.png";			// if playback is stopped, cancel the cover update and reset the default iddle image as current cover
+			return;
+		}
+
 		if(data === 'sudo: /var/www/util/upnp_albumart.py: command not found'){
 			this.getFallbackCoverFromMeta();
 			return;
