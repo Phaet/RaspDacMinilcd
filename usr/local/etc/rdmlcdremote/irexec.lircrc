@@ -82,7 +82,7 @@ end
 begin
 prog = irexec
 button = right
-config = /usr/local/bin/remoteproxy  /usr/bin/mpc next
+config = /usr/local/bin/remoteproxy /usr/bin/mpc next
 repeat = 0
 end
 
@@ -90,5 +90,162 @@ begin
 prog = irexec
 button = left
 config = /usr/local/bin/remoteproxy /usr/bin/mpc prev
+repeat = 0
+end
+
+
+begin
+prog = irexec
+button = KEY_0
+config = python3 /home/moode/myremote/myremote.py -k KEY_0 &
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_1
+config = python3 /home/moode/myremote/myremote.py -k KEY_1 &
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_2
+config = python3 /home/moode/myremote/myremote.py -k KEY_2 &
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_3
+config = python3 /home/moode/myremote/myremote.py -k KEY_3 &
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_4
+config = python3 /home/moode/myremote/myremote.py -k KEY_4 &
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_5
+config = python3 /home/moode/myremote/myremote.py -k KEY_5 &
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_6
+config = python3 /home/moode/myremote/myremote.py -k KEY_6 &
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_7
+config = python3 /home/moode/myremote/myremote.py -k KEY_7 &
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_8
+config = python3 /home/moode/myremote/myremote.py -k KEY_8 &
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_9
+config = python3 /home/moode/myremote/myremote.py -k KEY_9 &
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_UP
+config = /usr/local/bin/remoteproxy switch_view
+repeat = 3
+end
+
+begin
+prog = irexec
+button = KEY_DOWN
+config = /usr/local/bin/remoteproxy switch_view
+repeat = 3
+end
+
+begin
+prog = irexec
+button = KEY_LEFT
+config = /usr/local/bin/remoteproxy /usr/bin/mpc prev
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_RIGHT
+config = /usr/local/bin/remoteproxy /usr/bin/mpc next & 
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_ENTER
+config = 
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_STOP
+config = /usr/local/bin/remoteproxy /usr/bin/mpc stop
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_PLAY
+config = /usr/local/bin/remoteproxy /usr/bin/mpc toggle
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_BACK
+config = /usr/local/bin/remoteproxy /usr/bin/mpc seek -3
+delay = 2
+repeat = 3
+end
+
+begin
+prog = irexec
+button = KEY_FORWARD
+config = /usr/local/bin/remoteproxy /usr/bin/mpc seek +3
+delay = 2
+repeat = 3
+end
+
+begin
+prog = irexec
+button = KEY_STORE
+config = python3 /home/moode/myremote/myremote.py -k KEY_STORE &
+repeat = 0
+end
+
+begin
+prog = irexec
+button = KEY_OPTION
+config = /usr/local/bin/remoteproxy next_filter
+repeat = 3
+end
+
+begin
+prog = irexec
+button = KEY_INPUT
+config = /usr/local/bin/remoteproxy toggle_input
 repeat = 0
 end
