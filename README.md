@@ -12,7 +12,7 @@ Summary
 • Bumped node-canvas dependency to canvas 3.0.0.
 • No longer uses the now-obsoleted fbcp-ili9341, but uses a custom dtoverlay with preconfigured init sequence instead (more maintainable but less performant)
 • Added some adjustments to follow some change in moOde system since version 8 (mpd volume value is no longer an accurate representation of user-defined volume)
-• Supports now also track cover images sent by radio stations with the stream.
+• Supports now also track cover images sent by radio stations with the stream.9
 • Included a compile procedure directly in the npm package for the display renderer to help with native dependencies that have to be compiled.
 
 Installation
@@ -23,16 +23,17 @@ This walkthrough assumes you are working on a fresh moOde 9 installation with a 
 
 Please refer to this guide if you have trouble setting up your moOde install with SSH enabled. Once you are in, start by updating apt
 
-sudo apt-get update -y 
+```sudo apt-get update -y```
 
 
 
 2. Get and install project files
 
+```
 wget https://github.com/audiophonics/RaspDacMinilcd/archive/refs/heads/moode9.tar.gz
 tar -xvf moode9.tar.gz
 sudo rsync -a RaspDacMinilcd-moode9/usr/ /usr/
-
+```
 
 
 3. Compile and install dtoverlay
@@ -49,7 +50,9 @@ grep -qxF "dtoverlay=ili9341" /boot/firmware/config.txt || echo -e "dtoverlay=il
 
 Get build dependencies
 
-sudo apt-get install --no-install-recommends -y nodejs npm jq libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev 
+```
+sudo apt-get install --no-install-recommends -y nodejs npm jq libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+```
 
 
 
@@ -57,48 +60,54 @@ Compile native addons and get node_modules
 
 This part can take a while because it needs to compile a light version of cairo for image generation.
 
+```
 cd /usr/local/etc/rdmlcd
 npm install 
 cd
-
+```
 
 
 Enable renderer service to run at boot
 
+```
 sudo systemctl enable /usr/local/etc/rdmlcd/service/rdmlcd.service
-
+```
 
 
 5. Download and configure LIRC
 
 Download LIRC
 
+```
 sudo apt-get install --no-install-recommends -y lirc
-
+```
 
 
 Disable LIRC default service and provide our own config instead
 
+```
 sudo systemctl daemon-reload
 sudo systemctl enable /usr/local/etc/rdmlcdremote/service/arm64/rdmlcdlirc.service
 sudo systemctl enable /usr/local/etc/rdmlcdremote/service/rdmlcdirexec.service 
 sudo systemctl disable lircd irexec
 sudo systemctl stop lircd irexec
-
+```
 
 
 Edit /boot/firmware/config.txt to enable gpio-ir at boot
 
+```
 grep -qxF "dtoverlay=gpio-ir,gpio_pin=4" /boot/firmware/config.txt || echo -e "dtoverlay=gpio-ir,gpio_pin=4" | sudo tee -a /boot/firmware/config.txt > /dev/null
-
+```
 
 
 6. Configure DAC and Reboot
 
 bc is needed to allow cycling alsa properties from within apessq2m shell script
 
+```
 sudo apt-get install --no-install-recommends -y bc
-
+```
 
 
 After this is done, you still need to configure moode.local/snd-config.php
