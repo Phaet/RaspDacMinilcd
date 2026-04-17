@@ -40,10 +40,11 @@ sudo rsync -a RaspDacMinilcd-moode9/usr/ /usr/
 
 This is the main part that replaces fbcp-ili9341, you can inspect the source file here . Be careful as this will write into /boot/firmware/config.txt and add a dts file into /boot/firmware/overlays/
 
+```
 sudo dtc -@ -I dts -O dtb -o ili9341.dtbo /usr/local/share/rdm/dtoverlay/ili9341.dts
 sudo mv ili9341.dtbo /boot/firmware/overlays/
 grep -qxF "dtoverlay=ili9341" /boot/firmware/config.txt || echo -e "dtoverlay=ili9341" | sudo tee -a /boot/firmware/config.txt > /dev/null
-
+```
 
 
 4. Compile and install RDMLCD renderer
