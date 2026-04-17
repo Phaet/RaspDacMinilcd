@@ -5,15 +5,15 @@ Disclaimer
 
 This branch is still being tested
 
-Summary
-• This branch contains a version of the RaspDacMiniLCD package for moOde10
-• 64bit version only (32bit not supported)
-• No pre-compiled binaries : some dependencies have to be downloaded and compiled directly on the pi.
-• Bumped node-canvas dependency to canvas 3.0.0.
-• No longer uses the now-obsoleted fbcp-ili9341, but uses a custom dtoverlay with preconfigured init sequence instead (more maintainable but less performant)
-• Added some adjustments to follow some change in moOde system since version 8 (mpd volume value is no longer an accurate representation of user-defined volume)
-• Supports now also track cover images sent by radio stations with the stream.9
-• Included a compile procedure directly in the npm package for the display renderer to help with native dependencies that have to be compiled.
+Summary  
+• This branch contains a version of the RaspDacMiniLCD package for moOde10  
+• 64bit version only (32bit not supported)  
+• No pre-compiled binaries : some dependencies have to be downloaded and compiled directly on the pi.  
+• Bumped node-canvas dependency to canvas 3.0.0.  
+• No longer uses the now-obsoleted fbcp-ili9341, but uses a custom dtoverlay with preconfigured init sequence instead (more maintainable but less performant)  
+• Added some adjustments to follow some change in moOde system since version 8 (mpd volume value is no longer an accurate representation of user-defined volume)  
+• Supports now also track cover images sent by radio stations with the stream.9  
+• Included a compile procedure directly in the npm package for the display renderer to help with native dependencies that have to be compiled.  
 
 Installation
 
