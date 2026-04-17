@@ -1,11 +1,11 @@
 
-RDMLCD on moOde Audio 10.x
+## RDMLCD on moOde Audio 10.x
 
-Disclaimer
+### Disclaimer
 
 This branch is still being tested
 
-Summary  
+### Summary  
 • This branch contains a version of the RaspDacMiniLCD package for moOde10  
 • 64bit version only (32bit not supported)  
 • No pre-compiled binaries : some dependencies have to be downloaded and compiled directly on the pi.  
@@ -15,7 +15,7 @@ Summary
 • Supports now also track cover images sent by radio stations with the stream.9  
 • Included a compile procedure directly in the npm package for the display renderer to help with native dependencies that have to be compiled.  
 
-Installation
+### Installation
 
 This walkthrough assumes you are working on a fresh moOde 9 installation with a wired network. I did test on a pi4 so far. It is very likely that it will work on a pi3 as well.
 
